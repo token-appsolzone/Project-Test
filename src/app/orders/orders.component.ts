@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdersService } from "../shared/orders.service";
+import {toastr} from 'angular-toastr';
 
 @Component({
   selector: 'app-orders',
@@ -7,9 +8,9 @@ import { OrdersService } from "../shared/orders.service";
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
-  coffees = ["Americano", "Flat White", "Cappuccino", "Latte", "Espresso", "Machiato", "Mocha", "Hot Chocolate", "Tea"];
+  coffees = ["Arts & Humanities", "Business", "Computer Science", "Data Science", "Information Technology", "Health", "Math & Logic", "Personal Development", "Social Science","Language Learning"];
 
-  constructor(private ordersService:OrdersService) { }
+  constructor(public ordersService:OrdersService) { }
 
   coffeeOrder = [];
 addCoffee = coffee => this.coffeeOrder.push(coffee);
@@ -30,6 +31,9 @@ removeCoffee = coffee => {
    this.ordersService.createCoffeeOrder(data)
        .then(res => {
          //console.log("success");
+  
+        //  toastr.success('Hello world!', 'Toastr fun!');
+        
        });
   }
 

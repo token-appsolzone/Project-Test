@@ -19,7 +19,7 @@ export class OrdersService {
 
   form = new FormGroup({        
     customerName: new FormControl(''),
-    orderNumber: new FormControl(''),
+    courseName: new FormControl(''),
     coffeeOrder: new FormControl(''), 
     completed: new FormControl(false)
 })
@@ -27,7 +27,7 @@ export class OrdersService {
 createCoffeeOrder(data) {
   return new Promise<any>((resolve, reject) =>{
       this.firestore
-          .collection("coffeeOrders")
+          .collection("course")
           .add(data)
           .then(res => {}, err => reject(err));
   });
@@ -36,7 +36,7 @@ createCoffeeOrder(data) {
 
 getCoffeeOrders() { 
   this.data1=
-   this.firestore.collection("coffeeOrders").snapshotChanges();
+   this.firestore.collection("course").snapshotChanges();
   
  return this.data1;
 }
@@ -44,7 +44,7 @@ getCoffeeOrders() {
 updateCoffeeOrder(data) {
   this.data2=
       this.firestore
-      .collection("coffeeOrders")
+      .collection("course")
       .doc(data.payload.doc.id)
       .set({ completed: true }, { merge: true });
       return this.data2;
@@ -52,7 +52,7 @@ updateCoffeeOrder(data) {
 deleteCoffeeOrder(data) {
    this.data3=
        this.firestore
-       .collection("coffeeOrders")
+       .collection("course")
        .doc(data.payload.doc.id)
        .delete();
        return this.data3;

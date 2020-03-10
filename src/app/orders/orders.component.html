@@ -1,14 +1,14 @@
 <form [formGroup]="this.ordersService.form" >
-    <input placeholder="Order Number" 
-           formControlName="orderNumber" 
+    <input placeholder="Course Name" 
+           formControlName="courseName" 
            type="text" 
            class="input-field col s12">
-    <input placeholder="Customer Name" 
+    <input placeholder="Course Details" 
            formControlName="customerName" 
            type="text" 
            class="input-field col s12">
 
-           <button class="waves-effect waves-light btn col s4" 
+           <button class="waves-effect waves-light btn col s6" 
         *ngFor="let coffee of coffees" 
         (click)="addCoffee(coffee)">
 {{coffee}}
@@ -26,4 +26,10 @@
   Submit
   </button>
 </form>
+<iframe
+allow="microphone;"
+width="350"
+height="430"
+src="https://console.dialogflow.com/api-client/demo/embedded/9e09b03f-714c-439c-a345-9fe50eac0653">
+</iframe>
 
